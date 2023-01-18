@@ -1,7 +1,7 @@
 <div x-data="movies" class="py-3">
 
-
-         <div x-init="getMovies('spongebob')"></div>
+        {{-- First Fetch Data --}}
+         <div x-init="getMovies($wire.searchKey)"></div>
 
         {{-- <button
         x-on:click="getMovies($wire.searchKey)"
@@ -9,7 +9,7 @@
         Button
         </button> --}}
         {{-- search component --}}
-        <livewire:search-component>
+        <livewire:search-component :paramsKey="$searchKey">
 
 
     {{-- Loading States --}}

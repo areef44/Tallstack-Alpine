@@ -13,7 +13,25 @@ class SearchComponent extends Component
 
     public function searchTrigger()
     {
-        $this->emit('search-trigger', $this->searchKey);
+        /**
+         * Search Action
+         */
+        if ($this->searchAction) $this->emit('search-trigger', $this->searchKey);
+
+        /**
+         * Redirect Action
+         */
+        else redirect('/movies/' . $this->searchKey);
+
+
+
+        // dd($this->searchAction);
+    }
+
+    public function mount($paramsKey = '', $paramsAction = true)
+    {
+        $this->searchKey = $paramsKey;
+        $this->searchAction = $paramsAction;
     }
 
     public function render()
